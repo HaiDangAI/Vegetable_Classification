@@ -2,13 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+import os
 
 
 
 path_to_model='model_inceptionV3_epoch5.h5'
-print("Loading the model..")
-model = load_model(path_to_model)
-print("Done!")
+# print("Loading the model..")
+# model = load_model(path_to_model)
+# print("Done!")
 
 category={
     0: 'Bean', 1: 'Bitter_Gourd', 2: 'Bottle_Gourd', 3 : 'Brinjal', 4: "Broccoli", 5: 'Cabbage', 6: 'Capsicum', 7: 'Carrot', 8: 'Cauliflower',
@@ -28,4 +29,56 @@ def predict_image(filename,model):
     plt.imshow(img_array)
     plt.show()
 
-predict_image('Vegetable_Images/test2/fa7278bd2587e5ec5551801d90218cde.jpg',model)
+def predict_dir(filedir,model):
+    cols=3
+    pos=0
+    images=[]
+    total_images=len(os.listdir(filedir))
+    rows=total_images//cols + 1
+    
+    true=filedir.split('\\')[-1]
+    
+    for i in sorted(os.listdir(filedir)):
+        images.append(os.path.join(filedir,i))
+        
+    for subplot, imggg in enumerate(images):
+        img_ = image.load_img(imggg, target_size=(224, 224))
+        img_array = image.img_to_array(img_)
+        img_processed = np.expand_dims(img_array, axis=0) 
+        img_processed /= 255.
+        prediction = model.predict(img_processed)
+        index = np.argmax(prediction)
+        
+        pred=category.get(index)
+        if pred==true:
+            pos+=1
+
+    acc=pos/total_images
+    print("Accuracy for {orignal}: {:.2f} ({pos}/{total})".format(acc,pos=pos,total=total_images,orignal=true))
+
+
+# predict_image('Vegetable_Images\\test\\Bean\\0001.jpg',model)
+# predict_dir('Vegetable_Images\\test\\Bean', model)
+
+# for i in os.listdir('Vegetable_Images\\test'):
+#     predict_dir(os.path.join('Vegetable_Images\\test',i),model)
+    
+option = int(input("1. Predict single image\n2. Predict single vegetable folder\n3. Predict test folder\n"))
+
+if option in [1,2,3]:
+    print("Loading the model..")
+    model = load_model(path_to_model)
+    print("Done!")
+    
+    if option == 1:
+        filename = 'Vegetable_Images\\test\\Bean\\0001.jpg'
+        filename = input('Enter filename: ') or filename
+        predict_image(filename,model)
+    elif option == 2:
+        foldername = input('Enter folder name: ') or 'Vegetable_Images\\test\\Bean'
+        predict_dir(foldername, model)
+    else:
+        for i in os.listdir('Vegetable_Images\\test'):
+            predict_dir(os.path.join('Vegetable_Images\\test',i),model)
+else:
+    quit()
