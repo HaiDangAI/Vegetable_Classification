@@ -9,8 +9,7 @@
 
 ## Dataset Preparation
  We prepared the dataset Vegetable_Images included:
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| test  | train | validation |
+| ----- | ----- | ---------- |
+| 200  | 1000 | 200 |
 
