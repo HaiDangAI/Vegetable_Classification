@@ -42,7 +42,7 @@ We have 3 options:
 1. Predict single image
 Will require name of the file want to predict and enter to predict default image (Vegetable_Images\\test\\Bean\\0001.jpg)<br/>
 Example filename: ```Vegetable_Images\test\Brinjal\0871.jpg```
-The predict will plot the file image and name the model predicted.
+The predict will plot the file image and name the model predicted.<br/>
 ![image](https://user-images.githubusercontent.com/85833803/170502826-69717fe1-9f22-4ff9-be5a-047195a1151f.png)
 
 2. Predict single vegetable folder
