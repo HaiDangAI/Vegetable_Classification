@@ -5,12 +5,6 @@ from tensorflow.keras.preprocessing import image
 import os
 
 
-
-path_to_model='model_inceptionV3_epoch5.h5'
-# print("Loading the model..")
-# model = load_model(path_to_model)
-# print("Done!")
-
 category={
     0: 'Bean', 1: 'Bitter_Gourd', 2: 'Bottle_Gourd', 3 : 'Brinjal', 4: "Broccoli", 5: 'Cabbage', 6: 'Capsicum', 7: 'Carrot', 8: 'Cauliflower',
     9: 'Cucumber', 10: 'Papaya', 11: 'Potato', 12: 'Pumpkin', 13 : "Radish", 14: "Tomato"
@@ -56,20 +50,14 @@ def predict_dir(filedir,model):
     acc=pos/total_images
     print("Accuracy for {orignal}: {:.2f} ({pos}/{total})".format(acc,pos=pos,total=total_images,orignal=true))
 
+path_to_model='model_inceptionV3_epoch5.h5'
+print("Loading the model..")
+model = load_model(path_to_model)
+print("Done!")
 
-# predict_image('Vegetable_Images\\test\\Bean\\0001.jpg',model)
-# predict_dir('Vegetable_Images\\test\\Bean', model)
-
-# for i in os.listdir('Vegetable_Images\\test'):
-#     predict_dir(os.path.join('Vegetable_Images\\test',i),model)
-    
 option = int(input("1. Predict single image\n2. Predict single vegetable folder\n3. Predict test folder\n"))
 
 if option in [1,2,3]:
-    print("Loading the model..")
-    model = load_model(path_to_model)
-    print("Done!")
-    
     if option == 1:
         filename = 'Vegetable_Images\\test\\Bean\\0001.jpg'
         filename = input('Enter filename: ') or filename
