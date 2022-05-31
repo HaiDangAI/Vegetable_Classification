@@ -57,11 +57,11 @@ Predict all file in test folder.<br/>
 ```
 python GUI.py
 ```
-Graphical User Interface when you run GUI.py<br/>
+- Graphical User Interface when you run GUI.py<br/><br/>
 <img src="https://user-images.githubusercontent.com/85833803/170506006-bf8ab36f-7056-441d-84c1-ffad2b824ca1.png" width="800" height="600">
-After upload the image.<br/>
+- After upload the image.<br/><br/>
 <img src="https://user-images.githubusercontent.com/85833803/170506081-9c248a55-3669-4474-8601-9ec421c8d451.png" width="800" height="600">
-Program will predict the name of vegetable and provide sone imformation about nutrition of the vegetable.<br/>
+- Program will predict the name of vegetable and provide sone imformation about nutrition of the vegetable.<br/><br/>
 <img src="https://user-images.githubusercontent.com/85833803/170506140-cd6309e9-f98f-45e0-850f-32691f93c8e5.png" width="800" height="600">
 
 
