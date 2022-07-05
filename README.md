@@ -69,7 +69,7 @@ The Vegetable Classification program will help alot of thing about name and nutr
 
     @inproceedings{Vetegable Classification,
     title     = {{Vetegable Classification Using Transfer Learning}},
-    author    = {Hai Dang Nguyen},
+    author    = {Hai Dang Nguyen, Ngo Sach Trung},
     year      = {2022}
     link      = {https://github.com/HaiDangAI/Vegetable_Classification}
     }
