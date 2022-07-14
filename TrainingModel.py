@@ -4,8 +4,6 @@ import os, random, pathlib, warnings, itertools, math
 warnings.filterwarnings("ignore")
 
 import tensorflow as tf
-import tensorflow.keras.backend as K
-from sklearn.metrics import confusion_matrix
 
 from tensorflow.keras import models
 from tensorflow.keras.models import Model
