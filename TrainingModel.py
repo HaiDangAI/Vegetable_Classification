@@ -44,7 +44,7 @@ model.compile(
 )
 
 train_datagen = image.ImageDataGenerator(rescale = 1./255)
-test_datagen = image.ImageDataGenerator(rescale = 1./255)
+validation_datagen = image.ImageDataGenerator(rescale = 1./255)
 
 training_set = train_datagen.flow_from_directory(
     train_folder,
@@ -52,8 +52,8 @@ training_set = train_datagen.flow_from_directory(
     batch_size = 64,
     class_mode = 'categorical')
 
-test_set = test_datagen.flow_from_directory(
-    test_folder, 
+validation_set = validation_datagen.flow_from_directory(
+    validation_folder, 
     target_size = (250,250),
     batch_size = 64, 
     class_mode = 'categorical')
@@ -62,10 +62,10 @@ class_map = training_set.class_indices
 
 r = model.fit_generator(
   training_set,
-  validation_data=test_set,
+  validation_data=validation_set,
   epochs=5,
   steps_per_epoch=len(training_set),
-  validation_steps=len(test_set)
+  validation_steps=len(validation_set)
 )
 
 model.save('model_inceptionV3_epoch5.h5')
