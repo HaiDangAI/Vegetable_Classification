@@ -1,10 +1,7 @@
 
 
 import os, random, pathlib, warnings, itertools, math
-warnings.filterwarnings("ignore")
-
 import tensorflow as tf
-
 from tensorflow.keras import models
 from tensorflow.keras.models import Model
 from tensorflow.keras.models import load_model
