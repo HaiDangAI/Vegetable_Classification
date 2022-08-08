@@ -27,7 +27,6 @@ def predict_dir(filedir,model):
     pos=0
     images=[]
     total_images=len(os.listdir(filedir))
-    
     true=filedir.split('\\')[-1]
     
     for i in sorted(os.listdir(filedir)):
