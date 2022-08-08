@@ -46,14 +46,12 @@ validation_datagen = image.ImageDataGenerator(rescale = 1./255)
 training_set = train_datagen.flow_from_directory(
     train_folder,
     target_size = (250, 250),
-    batch_size = 64,
-    class_mode = 'categorical')
+    batch_size = 64)
 
 validation_set = validation_datagen.flow_from_directory(
     validation_folder, 
     target_size = (250,250),
-    batch_size = 64, 
-    class_mode = 'categorical')
+    batch_size = 64)
 
 
 r = model.fit_generator(
