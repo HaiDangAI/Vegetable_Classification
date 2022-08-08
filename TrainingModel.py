@@ -20,7 +20,7 @@ validation_folder = os.path.join(dataset,"test")
 
 IMAGE_SIZE = [224, 224]
 
-inception = InceptionV3(input_shape=(250,250,3), weights=None, include_top=False)
+inception = InceptionV3(input_shape=(250,250,3), include_top=False)
 
 for layer in inception.layers:
     layer.trainable = False
