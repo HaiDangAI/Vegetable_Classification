@@ -24,11 +24,9 @@ def predict_image(filename,model):
     plt.show()
 
 def predict_dir(filedir,model):
-    cols=3
     pos=0
     images=[]
     total_images=len(os.listdir(filedir))
-    rows=total_images//cols + 1
     
     true=filedir.split('\\')[-1]
     
