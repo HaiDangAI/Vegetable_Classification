@@ -14,8 +14,7 @@ from tensorflow.keras.layers import Dense, Flatten, GlobalAveragePooling2D, Dens
 dataset='Vegetable_Images'
 
 train_folder = os.path.join(dataset,"train")
-test_folder = os.path.join(dataset,"validation")
-validation_folder = os.path.join(dataset,"test")
+validation_folder = os.path.join(dataset,"validation")
 
 
 IMAGE_SIZE = [224, 224]
