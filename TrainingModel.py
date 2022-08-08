@@ -55,7 +55,6 @@ validation_set = validation_datagen.flow_from_directory(
     batch_size = 64, 
     class_mode = 'categorical')
 
-class_map = training_set.class_indices
 
 r = model.fit_generator(
   training_set,
